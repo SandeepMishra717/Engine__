@@ -1,0 +1,102 @@
+{
+  "los": {
+    "loan_id": "LOAN-123",
+    "Loan Details": {
+      "LTV": 90,
+      "CLTV": 80,
+      "HCLTV": 69,
+      "DTI": 55,
+      "Investor": "Fannie Mae",
+      "Average Represetative Credit Score": 610,
+      "Loan Program Detail": "HomeReady"
+    },
+    "Disclosure Dates": {
+      "Estimated Closing Date": "10-10-2020"
+    },
+    "URLA Lender": {
+      "Property and Loan Information": {
+        "Purpose of Loan": "No Cash-Out Refinance",
+        "No Units": 3,
+        "Property Will Be": "Secondary",
+        "Street Address":"123 Main St",
+        "City" : "Anytown",
+        "State": "CA",
+        "Unit" : "15" ,
+        "Mortgage Loan Information": {
+          "Amortization Type": "Adjustable Rate",
+          "Mortgage Type Applied for": "Conventional"
+        },
+        "Terms of Loan": {
+          "Loan Amount": 100000
+        }
+      },
+      "Loan Program": "FNMA"
+    },
+    "URLA 5": {
+      "Closing Details": {
+        "Summary of Transaction": {
+          "Gift Amount": 20,
+          "Cash to Borrower": -1500,
+          "Cash From Borrower": 0
+        }
+      }
+    },
+    "URLA 3": {
+      "Liabilities Detail": {
+        "Will be paid off": "Yes",
+        "Account Type": "Mortgage",
+        "Name": "L",
+        "Account Number": "xxxxx7890",
+        "Subject Property": "Yes"
+      }
+    },
+    "URLA 1 Section 1: Borrower Information 1a Personal Information - Borrower Current Address Housing": {
+      "Street": "123 Main St",
+      "City": "Anytown",
+      "State": "CA",
+      "Unit": "15"
+    },
+    "URLA 2.Borrower: Current/Self Employment and income.Total": 50000,
+    "URLA 6.Area Median Income": 60000,
+    "Borrower.Has The Borrower Completed Homeownership education(Group or web based classes) within the last 12 months?": "No",
+    "URLA Lender.Property and Loan Information.Terms of Loan.Loan Amount": 200000
+  },
+  "title": {
+    "PropertyInfo": {
+      "ChainOfTitle": {
+        "Date": "01-07-2020"
+      }
+    }
+  },
+  "appraisal": {
+    "Appraisal": {
+      "EffectiveDate": "2024-04-15",
+      "PriorSale": {
+        "Date": "10-01-2020"
+      }
+    }
+  },
+  "credit_report": {
+    "Tradelines": {
+      "Creditor Account Number": "6789017890",
+      "Creditor Name": "Liab1",
+      "Date_Opened": "01-15-2020"
+    }
+  },
+  "drive_report": {
+    "Drive": {
+      "Property": {
+        "Address": {
+          "Street": "123 Main St",
+          "City": "Anytown",
+          "State": "CA",
+          "Unit": "15"
+        }
+      },
+      "FraudAlerts": {
+        "Level": "Low",
+        "DateRecorded": "10-01-2020"
+      }
+    }
+  }
+}

@@ -1,0 +1,582 @@
+# ppv.yaml - Consolidated Program & Product Validation Configuration
+# Combines rules.yaml and fields.yaml into a single configuration file
+
+# =============================================================================
+# FIELD MAPPINGS - Path resolution for all data sources
+# =============================================================================
+fields:
+  los:
+    loan_id:
+      path: "URLA 1.1003 URLA Part 1 - To be completed by Lender.URLA Loan Identifier"
+      default: None
+    borrower_first_name:
+      path: "URLA 1.1003 URLA Part 1 - To be completed by Lender.Section 1: Borrower Information.1a. Personal Information - Borrower.First Name"
+      default: None
+    borrower_middle_name:
+      path: "URLA 1.Section 1: Borrower Information.1a.Personal Information - Borrower.Middle"
+      default: None
+    borrower_last_name:
+      path: "URLA 1.Section 1: Borrower Information.1a.Personal Information - Borrower.Last Name"
+      default: None  
+    loan_program: 
+      path: "URLA Lender.Loan Program"
+      default: "" 
+    application_date:
+      path: "Disclosure Dates.Compliance Timeline.Application Date"
+
+    le_due_date:
+      path: "Disclosure Dates.Compliance Timeline.LE Due"
+    
+    purchase_price: 
+      path: "URLA Lender.Property and Loan Information.Terms of Loan.Purchase Price"
+
+    closing_date: 
+      path: "URLA Lender.Property and Loan Information.Minimum Required Funds or Cash Back.Closing Date"
+    
+    purpose_of_loan:
+      path: "URLA Lender.Property and Loan Information.Purpose of Loan"
+      default: ""
+    no_units:
+      path: "URLA Lender.Property and Loan Information.No Units"
+      default: 1
+    property_will_be:
+      path: "URLA Lender.Property and Loan Information.Property Will Be"
+      default: ""
+    amortization_type:
+      path: "URLA Lender.Property and Loan Information.Mortgage Loan Information.Amortization Type"
+      default: ""
+    mortgage_type_applied_for:
+      path: "URLA Lender.Property and Loan Information.Mortgage Loan Information.Mortgage Type Applied for"
+      default: ""
+    investor:
+      path: "Loan Details.Investor"
+      default: ""
+    underwriting_risk_assess_type:
+      path: "Loan Details.Underwriting Risk Assess Type"
+      default: ""
+    ltv:
+      path: "Loan Details.LTV"
+      default: None
+    cltv:
+      path: "Loan Details.CLTV"
+      default: None
+    hcltv:
+      path: "Loan Details.HCLTV"
+      default: None
+    dti:
+      path: "Loan Details.DTI"
+      default: None
+    average_representative_credit_score:
+      path: "Loan Details.Average Represetative Credit Score"
+      default: None
+    loan_program_detail:
+      path: "Loan Details.Loan Program Detail"
+      default: ""
+    property_type:
+      path: "URLA Lender.Property and Loan Information.Property Type"
+      default: ""
+    estimated_closing_date:
+      path: "Disclosure Dates.Estimated Closing Date"
+      default: ""
+    loan_amount:
+      path: "URLA Lender.Property and Loan Information.Terms of Loan.Loan Amount"
+      default: None
+    cash_to_borrower:
+      path: "URLA 5.Closing Details.Summary of Transaction.Cash to Borrower"
+      default: 0
+    cash_from_borrower:
+      path: "URLA 5.Closing Details.Summary of Transaction.Cash From Borrower"
+      default: 0
+    current_address_housing:
+      path: "URLA 1 Section 1: Borrower Information 1a  Personal Information - Borrower Current Address Housing"
+      default: {}
+    previous_address_housing:
+      path: "URLA 1.Section 1: Borrower Information.1a. Personal Information - Borrower.Former Address.Housing"
+      default: {}
+    urla_lender_subject_street:
+      path: "URLA Lender.Property and Loan Information.Street Address"
+      default: ""
+    urla_lender_subject_city:
+      path: "URLA Lender.Property and Loan Information.City"
+      default: ""
+    urla_lender_subject_state:
+      path: "URLA Lender.Property and Loan Information.State"
+      default: ""
+    urla_lender_subject_unit:
+      path: "URLA Lender.Property and Loan Information.Unit"
+      default: ""
+    section_5a_ownership:
+      path: "URLA 4.Loan and Property Information.5a. About this Property and Your Money for this Loan.If YES, have you had an ownership interest in another property in the last three years?.Borrower"
+      default: ""
+    homebuyer_education_certificate:
+      path: "Borrower.Has The Borrower Completed Homeownership education(Group or web based classes) within the last 12 months?"
+      default: "No"
+    total_income:
+      path: "URLA 2.Borrower: Current/Self Employment and income.Total"
+      default: 0
+    liabilities_will_be_paid_off:
+      path: "URLA 3.Liabilities Detail.Will be paid off"
+      default: "No"
+    liabilities_account_type:
+      path: "URLA 3.Liabilities Detail.Account Type"
+      default: ""
+    liabilities_subject_property:
+      path: "URLA 3.Liabilities Detail.Subject Property"
+      default: "No"
+    liabilities_name:
+      path: "URLA 3.Liabilities Detail.Name"
+      default: ""
+    liabilities_account_number:
+      path: "URLA 3.Liabilities Detail.Account Number"
+      default: ""
+    gift_amount:
+      path: "URLA 5.Closing Details.Summary of Transaction.Gift Amount"
+      default: 0
+    area_median_income:
+      path: "URLA 6.Area Median Income"
+      default: None
+
+  title:
+    chain_title_date:
+      path: "documents.Title Commitment.fields.chain_title_date.value"
+      default: ""
+
+  appraisal:
+    appraisal_effective_date:
+      path: "Appraisal.EffectiveDate"
+      default: ""
+    prior_sale_date:
+      path: "Appraisal.PriorSale.Date"
+      default: ""
+
+  credit_report:
+    creditor_account_number:
+      path: "credit_report.Tradelines.Creditor Account Number"
+      default: ""
+    creditor_creditor_name:
+      path: "credit_report.Tradelines.Creditor Name"
+      default: ""
+    date_opened:
+      path: "credit_report.Tradelines.Date_Opened"
+      default: ""
+
+  drive_report:
+    fraud_alert:
+      path: "Drive.FraudAlerts.Level"
+      default: ""
+    fraud_recorded_date:
+      path: "Drive.FraudAlerts.DateRecorded"
+      default: ""
+    drive_street:
+      path: "Drive.Property.Address.Street"
+      default: ""
+    drive_city:
+      path: "Drive.Property.Address.City"
+      default: ""
+    drive_state:
+      path: "Drive.Property.Address.State"
+      default: ""
+    drive_unit:
+      path: "Drive.Property.Address.Unit"
+      default: ""
+
+# =============================================================================
+# VALIDATION RULES - All 28 rules for Program & Product Validation
+# =============================================================================
+rules:
+  # ---------------------------------------------------------------------------
+  # RULES 1-12: LTV/CLTV/HCLTV VALIDATION RULES
+  # ---------------------------------------------------------------------------
+  - id: "PPV-0001"
+    name: "LTV/CLTV/HCLTV - Primary Purchase & No Cash-Out - 1 Unit - Fixed Rate - FNMA/DU"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase","No Cash-Out Refinance"]
+      no_units: [1]
+      property_will_be: ["Primary"]
+      amortization_type: ["Fixed Rate"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 97
+      cltv: 97
+      hcltv: 97
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae Fixed Rate - 1 unit Primary Residence."
+
+  - id: "PPV-0002"
+    name: "LTV - Primary Purchase - 1 Unit - Adjustable Rate"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase", "No Cash-Out Refinance"]
+      no_units: [1]
+      property_will_be: ["Primary"]
+      amortization_type: ["Adjustable Rate"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 95
+      cltv: 95
+      hcltv: 95
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae Adjustable Rate - 1 unit Primary Residence."
+
+  - id: "PPV-0003"
+    name: "LTV - Primary Purchase - 2-4 Units - All Amortization"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase", "No Cash-Out Refinance"]
+      no_units: [2,3,4]
+      property_will_be: ["Primary"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    
+    thresholds:
+      ltv: 95
+      cltv: 95
+      hcltv: 95
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 2 to 4 unit Primary Residence."
+
+  - id: "PPV-0004"
+    name: "LTV - Second Home Purchase / No Cash-Out - 1 Unit"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase", "No Cash-Out Refinance"]
+      no_units: [1]
+      property_will_be: ["Secondary", "Second", "Second Home"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 90
+      cltv: 90
+      hcltv: 90
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 1 unit Secondary Residence."
+
+  - id: "PPV-0005"
+    name: "LTV - Investment Purchase - 1 Unit"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase"]
+      no_units: [1]
+      property_will_be: ["Investment"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 85
+      cltv: 85
+      hcltv: 85
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 1 unit Investment Home Purchase."
+
+  - id: "PPV-0006"
+    name: "LTV - Investment Purchase - 2-4 Units"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase"]
+      no_units: [2,3,4]
+      property_will_be: ["Investment"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 75
+      cltv: 75
+      hcltv: 75
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 2 to 4 unit Investment Home Purchase."
+
+  - id: "PPV-0007"
+    name: "LTV - Investment No Cash-Out Refi - All Units"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["No Cash-Out Refinance"]
+      property_will_be: ["Investment"]
+      no_units: [1,2,3,4]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 75
+      cltv: 75
+      hcltv: 75
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - Investment Home No Cash Out refinance."
+
+  - id: "PPV-0008"
+    name: "LTV - Primary Cash-Out Refinance - 1 Unit"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Cash-Out Refinance"]
+      no_units: [1]
+      property_will_be: ["Primary"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 80
+      cltv: 80
+      hcltv: 80
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 1 Unit Primary Residence Cash Out refinance."
+
+  - id: "PPV-0009"
+    name: "LTV - Primary Cash-Out - 2-4 Units"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Cash-Out Refinance"]
+      no_units: [2,3,4]
+      property_will_be: ["Primary"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 75
+      cltv: 75
+      hcltv: 75
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 2 to 4 Unit Primary Residence Cash Out refinance."
+
+  - id: "PPV-0010"
+    name: "LTV - Second Home Cash-Out - 1 Unit"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Cash-Out Refinance"]
+      no_units: [1]
+      property_will_be: ["Secondary", "Second", "Second Home"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 75
+      cltv: 75
+      hcltv: 75
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 1 Unit Secondary Residence Cash Out refinance."
+
+  - id: "PPV-0011"
+    name: "LTV - Investment Cash-Out - 1 Unit"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Cash-Out Refinance"]
+      no_units: [1]
+      property_will_be: ["Investment"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 75
+      cltv: 75
+      hcltv: 75
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 1 Unit Investment Home Cash Out refinance."
+
+  - id: "PPV-0012"
+    name: "LTV - Investment Cash-Out - 2-4 Units"
+    type: "simple"
+    validator: "LTVValidator"
+    trigger:
+      purpose_of_loan: ["Cash-Out Refinance"]
+      no_units: [2,3,4]
+      property_will_be: ["Investment"]
+      mortgage_type_applied_for: ["Conventional"]
+      or:
+        - investor: ["Fannie Mae"]
+        - underwriting_risk_assess_type: ["DU"]
+    thresholds:
+      ltv: 70
+      cltv: 70
+      hcltv: 70
+    alert_message: "LTV/CLTV/HCLTV is exceeding threshold limit for Fannie Mae - 2 to 4 Unit Investment Home Cash Out refinance."
+
+  # ---------------------------------------------------------------------------
+  # RULES 13-28: COMPLEX VALIDATION RULES
+  # ---------------------------------------------------------------------------
+  - id: "PPV-0013"
+    name: "DTI Limit for Conventional Purchase / No Cash-Out"
+    type: "complex"
+    validator: "DTIValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["Purchase", "No Cash-Out Refinance"]
+    params:
+      dti_limit: 50
+    alert_message: "DTI exceeds 50%."
+
+  - id: "PPV-0014"
+    name: "HomeReady/Home Possible Occupancy"
+    type: "complex"
+    validator: "OccupancyValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      loan_program_detail: ["Home Ready", "Home Possible"]
+    alert_message: "Property must be primary for HomeReady/Home Possible."
+
+  - id: "PPV-0015"
+    name: "Second Home - Unit must be 1"
+    type: "complex"
+    validator: "SecondHomeValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      property_will_be: ["Secondary", "Second", "Second Home"]
+    alert_message: "Second home must be single unit."
+
+  - id: "PPV-0016"
+    name: "Investment property not manufactured"
+    type: "complex"
+    validator: "InvestmentValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      property_will_be: ["Investment"]
+    alert_message: "Investment property cannot be manufactured housing."
+
+  - id: "PPV-0017"
+    name: "Average Representative Credit Score Minimum"
+    type: "complex"
+    validator: "CreditScoreValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+    params:
+      min_fico: 620
+    alert_message: "Average Representative Credit Score is below 620."
+
+  - id: "PPV-0018"
+    name: "Gift funds condition for LTV>80 and multi-unit or secondary"
+    type: "complex"
+    validator: "GiftValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      ltv: ["GT80"]
+      no_units: [2,3,4]
+      property_will_be: ["Secondary", "Second", "Second Home"]
+    alert_message: "Borrower is using gift funds for down payment, please check if 5% minimum borrower contribution are from their own funds."
+
+  - id: "PPV-0019"
+    name: "Cash-Out Tradeline Match and Seasoning"
+    type: "complex"
+    validator: "CashoutSeasoningValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["Cash-Out Refinance"]
+      liabilities_will_be_paid_off: ["Yes"]
+      liabilities_account_type: ["Mortgage"]
+      liabilities_subject_property: ["Yes"]
+    params:
+      name_match_threshold: 70
+      seasoning_months: 12
+    alert_message: "Cash-out seasoning / tradeline matching failed."
+
+  - id: "PPV-0020"
+    name: "Chain of Title Seasoning for Cash-Out"
+    type: "complex"
+    validator: "TitleValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["Cash-Out Refinance"]
+    params:
+      min_months: 6
+    alert_message: "Chain of title seasoning requirement not met."
+
+  - id: "PPV-0021"
+    name: "Drive Report Fraud Recorded Date vs Closing"
+    type: "complex"
+    validator: "FraudValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["Cash-Out Refinance"]
+    params:
+      max_months: 6
+    alert_message: "Fraud recording date within 6 months of estimated closing."
+
+  - id: "PPV-0022"
+    name: "Appraisal Prior Sale Seasoning"
+    type: "complex"
+    validator: "AppraisalPriorSaleValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["Cash-Out Refinance"]
+    params:
+      min_months: 6
+    alert_message: "Prior sale seasoning requirement not met."
+
+  - id: "PPV-0023"
+    name: "HomeReady/Home Possible must be Fixed Rate"
+    type: "complex"
+    validator: "LoanProgramValidator"
+    trigger:
+      loan_program_detail: ["HomeReady", "Home Possible"]
+      mortgage_type_applied_for: ["Conventional"]
+    alert_message: "HomeReady/Home Possible require Fixed Rate amortization."
+
+  - id: "PPV-0024"
+    name: "Cash From/To Borrower Negative Amount Limit"
+    type: "complex"
+    validator: "CashbackValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["No Cash-Out Refinance"]
+    params:
+      percent_limit: 0.01
+      absolute_limit: 2000
+    alert_message: "Negative cash amount exceeds allowed limit."
+
+  - id: "PPV-0025"
+    name: "Homebuyer Education Certificate Requirement (Condition)"
+    type: "condition_only"
+    validator: "HomebuyerProgramValidator"
+    trigger:
+      loan_program_detail: ["HomeReady", "Home Possible", "HomeOne"]
+      current_address_housing: ["Rent", "No Housing expense"]
+      previous_address_housing: ["Rented", "No Primary Housing expenses", ""]
+      section_5a_ownership: ["Yes"]
+    condition_message: "Homebuyer Education Certificate is missing."
+
+  - id: "PPV-0026"
+    name: "First-time homebuyer LTV>95 Condition"
+    type: "condition_only"
+    validator: "HomebuyerLTVValidator"
+    trigger:
+      purpose_of_loan: ["Purchase"]
+      ltv: ["GT95"]
+      current_address_housing: ["Rent", "No Housing expense"]
+      previous_address_housing: ["Rented", "No Primary Housing expenses", ""]
+      section_5a_ownership: ["No"]
+    params:
+      max_ltv: 95
+    condition_message: "Homebuyer Education Certificate is missing for high LTV first-time buyer."
+
+  - id: "PPV-0027"
+    name: "AMI Income Limit for HomeReady/Home Possible"
+    type: "complex"
+    validator: "IncomeValidator"
+    trigger:
+      loan_program_detail: ["HomeReady", "Home Possible"]
+    params:
+      area_median_income: 60000
+    alert_message: "Total income exceeds area median income limit."
+
+  - id: "PPV-0028"
+    name: "Lien Payoff - count and account type"
+    type: "complex"
+    validator: "LienPayoffValidator"
+    trigger:
+      mortgage_type_applied_for: ["Conventional"]
+      purpose_of_loan: ["No Cash-Out Refinance"]
+      liabilities_will_be_paid_off: ["Yes"]
+    alert_message: "Multiple liabilities or non-mortgage liability being paid off."
